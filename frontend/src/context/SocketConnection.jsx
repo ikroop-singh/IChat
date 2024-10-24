@@ -14,7 +14,7 @@ export const SocketContextProvider=({children})=>{
                  
         if(authUser){
             
-            const socket=io('http://localhost:8000',{
+            const socket=io('https://ichat-6hr0.onrender.com',{
                 query:{
                     userId:authUser._id
                 }
