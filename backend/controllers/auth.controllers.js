@@ -8,11 +8,14 @@ const login = async (req, res) => {
     try {
 
         const { username, password } = req.body;
+        
 
         const userData = await User.findOne({ username })
+        
         hashPass = await bcrypt.compare(password, userData?.password ||"" )
 
-        if (!userData || !hashPass) {            
+        if (!userData || !hashPass) {         
+               
             res.status(400).json({ "error": "Invalud username or password" })
         }
         else {
